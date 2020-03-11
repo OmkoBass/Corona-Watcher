@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', cursive;
+}
+
+nav {
+    height: 7vh;
+    text-align: center;
+    background-color: black;
+}
+
+nav h3 {
+    transform: translateY(15px);
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.corona {
+    text-align: center;
+}
+
+.corona-date {
+    padding: 1em;
+    min-height: 25vh;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+    background-color: black;
+}
+
+.corona-date h3{
+    animation-name: appear;
+    animation-duration: 3s;
+    margin-top: 1.5em;
+}
+
+.corona-numbers {
+    margin-top: 2em;
+}
+
+.corona-numbers li {
+    margin-bottom: 2em;
+}
+
+.latest {
+    animation-name: appear;
+    animation-duration: 1s;
+}
+
+.death {
+    color: darkred;
+    animation-name: appear-left;
+    animation-duration: 1s;
+}
+
+.recovered {
+    color: green;
+    animation-name: appear-right;
+    animation-duration: 1s;
+}
+
+.loading {
+    margin-top: 2em;
+    padding: 1em;
+    transform: scale(1.5);
+    text-align: center;
+}
+
+.covid {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.covid h5 {
+    padding: 2em;
+}
+
+footer {
+    height: 8vh;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+footer p{
+    transform: translateY(15px);
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes appear-left {
+    from{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes appear-right {
+    from{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
