@@ -56,10 +56,18 @@ ul {
     animation-duration: 1s;
 }
 
+.death-no-animation {
+    color: darkred;
+}
+
 .recovered {
     color: green;
     animation-name: appear;
     animation-duration: 1s;
+}
+
+.recovered-no-animation {
+    color: green;
 }
 
 .loading {
@@ -78,8 +86,12 @@ ul {
     padding: 2em;
 }
 
+.stats {
+    text-align: center;
+}
+
 footer {
-    height: 8vh;
+    height: 9vh;
     text-align: center;
     background-color: black;
     color: white;

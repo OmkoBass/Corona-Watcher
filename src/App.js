@@ -2,9 +2,11 @@ import React from 'react';
 
 //Components
 import Nav from "./Components/Nav";
-import Footer from "./Components/Footer";
 import CoronaNumbers from "./Components/CoronaNumbers";
 import Info from "./Components/Info";
+import Countires from "./Components/Countries";
+import Footer from "./Components/Footer";
+
 
 //css
 import './Styles/style.css'
@@ -18,6 +20,7 @@ function App() {
             <Nav/>
             <CoronaNumbers/>
             <Info/>
+            <Countires/>
             <Footer/>
         </React.Fragment>
     );
