@@ -5,8 +5,6 @@ import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 function Stats(props) {
-    console.log(props.country[0])
-
     return (
         <div className='stats'>
             <Container>

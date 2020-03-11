@@ -90,6 +90,14 @@ ul {
     text-align: center;
 }
 
+.stats-control {
+    text-align: center;
+}
+
+.stats-control input {
+    margin-bottom: 2em;
+}
+
 footer {
     height: 9vh;
     text-align: center;
