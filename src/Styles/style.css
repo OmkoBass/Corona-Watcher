@@ -52,13 +52,13 @@ ul {
 
 .death {
     color: darkred;
-    animation-name: appear-left;
+    animation-name: appear;
     animation-duration: 1s;
 }
 
 .recovered {
     color: green;
-    animation-name: appear-right;
+    animation-name: appear;
     animation-duration: 1s;
 }
 
@@ -96,28 +96,6 @@ footer p{
     }
     to {
         transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes appear-left {
-    from{
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes appear-right {
-    from{
-        transform: translateX(50px);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
         opacity: 1;
     }
 }
