@@ -43,7 +43,7 @@ function CoronaNumbers() {
                                     <li>
                                         <h2 className='latest'>
                                             <CountUp end={data.latest.confirmed}
-                                            duration={4}/>
+                                            duration={3.5}/>
                                         </h2>
                                     </li>
                                     <hr/>
@@ -51,7 +51,7 @@ function CoronaNumbers() {
                                     <li>
                                         <h2 className='death'>
                                             <CountUp end={data.latest.deaths}
-                                            duration={4}/>
+                                            duration={3.5}/>
                                         </h2>
                                     </li>
                                     <hr/>
@@ -59,7 +59,7 @@ function CoronaNumbers() {
                                     <li>
                                         <h2 className='recovered'>
                                             <CountUp end={data.latest.recovered}
-                                            duration={4}/>
+                                            duration={3.5}/>
                                         </h2>
                                     </li>
                                     <hr/>

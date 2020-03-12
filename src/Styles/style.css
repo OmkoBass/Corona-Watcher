@@ -2,12 +2,13 @@
     margin: 0;
     padding: 0;
     font-family: 'Comfortaa', cursive;
+    overflow-x: hidden;
 }
 
 nav {
     height: 7vh;
     text-align: center;
-    background-color: black;
+    background: linear-gradient(90deg, #C04848, #480048);
 }
 
 nav h3 {
@@ -27,8 +28,7 @@ ul {
     padding: 1em;
     min-height: 25vh;
     color: white;
-    text-shadow: 4px 4px 4px black;
-    background-color: black;
+    background: linear-gradient(90deg, #C04848, #480048);
 }
 
 .corona-date h3{
@@ -98,20 +98,44 @@ ul {
     margin-bottom: 2em;
 }
 
+.country-info p {
+    padding: 0.5em;
+    font-size: 1.3em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 0.3s all ease-in-out;
+}
+
+.country-info p:hover {
+    color: white;
+    background-color: black;
+}
+
+.less-info h4{
+    padding: 0.5em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    transition: 0.3s all ease-in-out;
+}
+
+.less-info h4:hover {
+    color: white;
+    background-color: black;
+}
+
 footer {
-    height: 9vh;
     text-align: center;
     background-color: black;
     color: white;
 }
 
 footer p{
-    transform: translateY(15px);
+    margin-top: 0.5em;
 }
 
 @keyframes appear {
     from {
-        transform: translateY(50px);
+        transform: translateY(35px);
         opacity: 0;
     }
     to {
