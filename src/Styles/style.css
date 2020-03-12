@@ -132,6 +132,10 @@ footer p{
     margin-top: 0.5em;
 }
 
+.card {
+    padding: 1em;
+}
+
 @keyframes appear {
     from {
         transform: translateY(35px);

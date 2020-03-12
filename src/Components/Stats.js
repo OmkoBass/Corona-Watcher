@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 //Bootstrap
 import Container from "react-bootstrap/Container";
-import Jumbotron from "react-bootstrap/Jumbotron";
+import Card from "react-bootstrap/Card";
 import Chart from "./Chart";
 
 function Stats(props) {
@@ -15,7 +15,7 @@ function Stats(props) {
     return (
         <div className='stats'>
             <Container>
-                <Jumbotron>
+                <Card>
                     {basic
                     ?
                     <Chart countryInfo={props} goBack={handleInfo}/>
@@ -31,7 +31,7 @@ function Stats(props) {
                             </div>
                         </div>
                     }
-                </Jumbotron>
+                </Card>
                 <hr/>
             </Container>
         </div>
