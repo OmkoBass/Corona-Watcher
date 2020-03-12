@@ -6,13 +6,12 @@
 }
 
 nav {
-    height: 7vh;
     text-align: center;
     background: linear-gradient(90deg, #C04848, #480048);
 }
 
 nav h3 {
-    transform: translateY(15px);
+    padding: 1em;
     color: white;
 }
 

@@ -11,17 +11,20 @@ function Chart(props) {
         datasets: [
                 {
                     label: 'Sick',
-                    backgroundColor: 'lightgray',
+                    backgroundColor: '#cccccc', //Lighter
+                    borderColor: '#bfbfbf', //Darker
                     data: Object.values(sickData)
                 },
                 {
                     label: 'Dead',
-                    backgroundColor: 'darkred',
+                    backgroundColor: '#ff6666',
+                    borderColor: '#ff4d4d',
                     data: Object.values(deadData),
                 },
                 {
                     label: 'Recovered',
-                    backgroundColor: 'green',
+                    backgroundColor: '#85e085',
+                    borderColor: '#70db70',
                     data: Object.values(recoveredData),
                 }
             ]
@@ -33,6 +36,7 @@ function Chart(props) {
 
     return (
         <div>
+            <h2>{props.countryInfo.country[0].country}</h2>
             <Line data={data} options={{responsive: true}}/>
             <div className='less-info' onClick={handleBack}>
                 <h4>Less info</h4>
