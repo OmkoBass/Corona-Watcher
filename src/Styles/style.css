@@ -31,9 +31,7 @@ ul {
 }
 
 .corona-date h3{
-    animation-name: appear;
-    animation-duration: 3s;
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 .corona-numbers {
@@ -45,27 +43,14 @@ ul {
 }
 
 .latest {
-    animation-name: appear;
-    animation-duration: 1s;
+
 }
 
 .death {
     color: darkred;
-    animation-name: appear;
-    animation-duration: 1s;
-}
-
-.death-no-animation {
-    color: darkred;
 }
 
 .recovered {
-    color: green;
-    animation-name: appear;
-    animation-duration: 1s;
-}
-
-.recovered-no-animation {
     color: green;
 }
 
@@ -135,15 +120,4 @@ footer p{
 
 .card {
     padding: 1em;
-}
-
-@keyframes appear {
-    from {
-        transform: translateY(35px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }

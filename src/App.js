@@ -7,7 +7,6 @@ import Info from "./Components/Info";
 import Countires from "./Components/Countries";
 import Footer from "./Components/Footer";
 
-
 //css
 import './Styles/style.css'
 

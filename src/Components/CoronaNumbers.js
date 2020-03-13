@@ -72,11 +72,6 @@ function CoronaNumbers() {
                 :
                 <Loader/>
             }
-            {/*<div className='charts-main'>
-                <Line data={sick} options={{responsive: true}}/>
-                <Line data={dead} options={{responsive: true}}/>
-                <Line data={recovered} options={{responsive: true}}/>
-            </div>*/}
         </div>
     )
 }
