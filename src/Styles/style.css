@@ -70,6 +70,10 @@ ul {
     padding: 2em;
 }
 
+.covid p {
+    font-size: 0.8em;
+}
+
 .stats {
     text-align: center;
 }

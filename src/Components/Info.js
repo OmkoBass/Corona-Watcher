@@ -15,6 +15,7 @@ function Info() {
                     Fatigue and shortness of breath are also common indicators. Sputum production, headache, muscle pain, and sore throat are
                     less common symptoms.
                 </h5>
+                <p>(This information is pulled from covid-19 sources (link down below). I am not responsible if the info is not exactly right or it falls behind.</p>
                 <h3>
                     Wash your hands!
                 </h3>
