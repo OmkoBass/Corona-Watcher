@@ -1,4 +1,6 @@
 import React from 'react'
+
+//Chart.js
 import { Line } from "react-chartjs-2";
 
 function Chart(props) {
@@ -6,14 +8,28 @@ function Chart(props) {
     const deadData = props.countryInfo.country[1].history;
     const recoveredData = props.countryInfo.country[2].history;
 
+    //Dates weren't sorted so i needed to sort the dates
+    //And preserve the value order for those dates
+    let dates = [];
+
+    for (let date in sickData) {
+        dates.push([date, sickData[date]]);
+    }
+    dates.sort(function(a, b) {
+        return a[1] - b[1];
+    })
+
+    const datesSorted = dates.map(date => date[0]);
+    const values = dates.map(value => value[1]);
+
     const data = {
-        labels: Object.keys(sickData),
+        labels: datesSorted,
         datasets: [
                 {
                     label: 'Sick',
                     backgroundColor: '#cccccc', //Lighter
                     borderColor: '#bfbfbf', //Darker
-                    data: Object.values(sickData)
+                    data: values
                 },
                 {
                     label: 'Dead',

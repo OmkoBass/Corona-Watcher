@@ -3,9 +3,11 @@ import React, {useEffect, useState} from 'react'
 //axios
 import axios from 'axios';
 
+//Components
+import Loader from "./Loader";
+
 //Bootstrap
 import Container from 'react-bootstrap/Container'
-import Spinner from 'react-bootstrap/Spinner'
 
 //CountUp
 import CountUp from 'react-countup';
@@ -68,12 +70,13 @@ function CoronaNumbers() {
                         </div>
                 </div>
                 :
-                <div className='loading'>
-                    <Spinner animation="border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </Spinner>
-                </div>
+                <Loader/>
             }
+            {/*<div className='charts-main'>
+                <Line data={sick} options={{responsive: true}}/>
+                <Line data={dead} options={{responsive: true}}/>
+                <Line data={recovered} options={{responsive: true}}/>
+            </div>*/}
         </div>
     )
 }

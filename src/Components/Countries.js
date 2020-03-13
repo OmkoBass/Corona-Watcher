@@ -5,7 +5,9 @@ import axios from 'axios';
 
 //Components
 import Stats from "./Stats";
-import Spinner from "react-bootstrap/Spinner";
+import Loader from "./Loader";
+
+//Bootstrap
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
@@ -60,18 +62,15 @@ function Countires() {
                 <div>
                     <Container>
                         <div className='stats-control'>
-                            <Form.Label >Search your country:</Form.Label>
+                            <Form.Label >Search countires:</Form.Label>
                             <Form.Control ref={search} onChange={handleSearch} placeholder='Search countries...'/>
                         </div>
                     </Container>
                     {data}
                 </div>
             :
-            <div className='loading'>
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
-            </div>}
+            <Loader/>
+            }
         </div>
     )
 }
