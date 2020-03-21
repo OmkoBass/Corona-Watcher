@@ -21,24 +21,30 @@ function CoronaNumbers(props) {
                         <h3>Confirmed Cases:</h3>
                         <li>
                             <h2 className='latest'>
-                                <CountUp end={props.latest.confirmed}
-                                         duration={4}/>
+                                <CountUp 
+                                start={0}
+                                end={props.latest.confirmed}
+                                         duration={5}/>
                             </h2>
                         </li>
                         <hr/>
                         <h3>Total Deaths:</h3>
                         <li>
                             <h2 className='death'>
-                                <CountUp end={props.latest.deaths}
-                                         duration={4}/>
+                                <CountUp 
+                                start={0}
+                                end={props.latest.deaths}
+                                         duration={5}/>
                             </h2>
                         </li>
                         <hr/>
                         <h3>Recovered:</h3>
                         <li>
                             <h2 className='recovered'>
-                                <CountUp end={props.latest.recovered}
-                                         duration={4}/>
+                                <CountUp 
+                                start={0}
+                                end={props.latest.recovered}
+                                         duration={5}/>
                             </h2>
                         </li>
                         <hr/>
