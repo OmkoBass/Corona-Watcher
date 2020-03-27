@@ -8,9 +8,8 @@ import CountUp from 'react-countup';
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 function CoronaNumbers(props) {
-    console.log(props);
 
-    const mortality = Math.round(props.latest.confirmed / props.latest.deaths).toFixed(2);
+    const mortality = (props.latest.deaths / props.latest.confirmed * 100).toFixed(2);
     const date = props.date.slice(0, 10);
     const time = props.date.slice(11, 19);
 
