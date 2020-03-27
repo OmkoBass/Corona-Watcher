@@ -5,53 +5,17 @@
     overflow-x: hidden;
 }
 
-nav {
-    text-align: center;
-    background: linear-gradient(90deg, #C04848, #480048);
-}
-
-nav h3 {
-    padding: 1em;
-    color: white;
-}
-
 ul {
     list-style-type: none;
 }
 
-.corona {
-    text-align: center;
-}
-
-.corona-date {
-    padding: 1em;
-    min-height: 25vh;
-    color: white;
-    background: linear-gradient(90deg, #C04848, #480048);
-}
-
 .corona-date h3{
-    margin-top: 1em;
+    margin: 1em 0 1em 0;
 }
 
-.corona-numbers {
-    margin-top: 2em;
-}
-
-.corona-numbers li {
-    margin-bottom: 2em;
-}
-
-.latest {
-
-}
-
-.death {
-    color: darkred;
-}
-
-.recovered {
-    color: green;
+.jumbotron {
+    margin: 0 !important;
+    border-radius: 0 !important;
 }
 
 .loading {

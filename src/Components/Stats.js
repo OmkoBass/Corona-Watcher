@@ -25,8 +25,8 @@ function Stats(props) {
                                 <h2>{props.name[0]}</h2>
                                 <h4>{props.name[1]}</h4>
                                 <h5>{props.confirmed}</h5>
-                                <h5 className='death'>{props.dead}</h5>
-                                <h5 className='recovered'>{props.recovered}</h5>
+                                <h5 className='death text-danger'>{props.dead}</h5>
+                                <h5 className='recovered text-success'>{props.recovered}</h5>
                                 <div className='country-info' onClick={handleInfo}>
                                     <p>Click me for more info!</p>
                                 </div>
@@ -35,8 +35,8 @@ function Stats(props) {
                         <Chart
                             name={props.name}
                             datesConfirmed={props.datesConfirmed}
-                            datesDead={props.datesDead}
-                            datesRecovered={props.datesRecovered}
+                            datesDead={Object.values(props.datesDead)}
+                            datesRecovered={Object.values(props.datesRecovered)}
                             goBack={handleInfo}
                         />
                     }

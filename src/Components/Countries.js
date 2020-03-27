@@ -37,8 +37,8 @@ function Countries(props) {
             dead={country[2]}
             recovered={country[3]}
             datesConfirmed={country[4]}
-            datesDead={Object.values(country[5])}
-            datesRecovered={Object.values(country[6])}
+            datesDead={country[5]}
+            datesRecovered={country[6]}
         />
     });
 
