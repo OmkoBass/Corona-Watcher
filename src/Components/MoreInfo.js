@@ -6,14 +6,21 @@ import Loader from "./Loader";
 //MoreInfo.js
 import {Line} from "react-chartjs-2";
 
+//API
+import { NovelCovid } from "novelcovid/dist";
+
 function MoreInfo(props) {
     const [info, setInfo] = useState(null);
     const [done, setDone] = useState(false);
 
+    async function getCountry() {
+        let data = await new NovelCovid();
+
+        return data.historical(null, props.country, props.province);
+    }
+
     useEffect(() => {
-        const getCountry = async () => {
-            const response = await fetch(`https://corona.lmao.ninja/v2/historical/${props.country}/${props.province}`);
-            const responseData = await response.json();
+        getCountry().then(responseData => {
             const info = {
                 labels: Object.keys(responseData.timeline.cases),
                 datasets: [
@@ -42,10 +49,8 @@ function MoreInfo(props) {
             };
 
             setInfo(info);
-        };
-        getCountry().then(function () {
             setDone(true);
-        });
+        })
     });
 
     return (

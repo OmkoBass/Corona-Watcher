@@ -38,7 +38,7 @@ function Stats(props) {
                                 goBack={handleInfo}
                             />
                     }
-                    <div className='country-info' onClick={handleInfo}>
+                    <div className='country-info mt-3' onClick={handleInfo}>
                         <p>Click me for {basic ? 'more' : 'less'} info!</p>
                     </div>
                 </Card>

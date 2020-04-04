@@ -7,6 +7,7 @@ import Info from "./Components/Info";
 import Countries from "./Components/Countries";
 import Footer from "./Components/Footer";
 import Loader from "./Components/Loader";
+import GraphedCases from "./Components/GraphedCases";
 
 //css
 import './Styles/style.css'
@@ -16,7 +17,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //API
 import { NovelCovid } from "novelcovid/dist";
-import GraphedCases from "./Components/GraphedCases";
 
 function App() {
     const [globalData, setGlobalData] = useState(null);

@@ -12,7 +12,25 @@ function CoronaNumbers(props) {
 
     const date = new Date(props.update);
 
-    const convertedDate = `${date.getMonth()+1}:${date.getDate()}:${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let second = date.getSeconds();
+
+    if (month < 10)
+        month = `0${month}`;
+    if (day < 10)
+        day = `0${day}`;
+    if (hour < 10)
+        hour = `0${hour}`;
+    if (min < 10)
+        min = `0${min}`;
+    if (second < 10)
+        second = `0${second}`;
+
+
+    const convertedDate = `${month}:${day}:${date.getFullYear()} at ${hour}:${min}:${second}`;
 
     return (
         <div className='text-center'>
