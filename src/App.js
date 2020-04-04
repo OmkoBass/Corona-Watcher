@@ -16,7 +16,7 @@ import './Styles/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //API
-import { NovelCovid } from "novelcovid/dist";
+import { NovelCovid } from 'novelcovid';
 
 function App() {
     const [globalData, setGlobalData] = useState(null);
