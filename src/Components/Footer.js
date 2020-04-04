@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <footer>
-            <p>https://github.com/ExpDev07/coronavirus-tracker-api</p>
+            <a href='https://github.com/NovelCOVID/API'>https://github.com/NovelCOVID/API</a>
             <p>OmkoBass Github</p>
         </footer>
     )

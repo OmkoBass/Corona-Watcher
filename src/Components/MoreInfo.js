@@ -1,24 +1,10 @@
 import React from 'react'
 
-//Chart.js
-import { Line } from "react-chartjs-2";
+//MoreInfo.js
+/*import { Line } from "react-chartjs-2";*/
 
-function Chart(props) {
-    //Dates weren't sorted so i needed to sort the dates
-    //And preserve the value order for those dates
-    let dates = [];
-
-    for (let date in props.datesConfirmed) {
-        dates.push([date, props.datesConfirmed[date]]);
-    }
-    dates.sort(function(a, b) {
-        return a[1] - b[1];
-    })
-
-    const datesSorted = dates.map(date => date[0]);
-    const values = dates.map(value => value[1]);
-
-    const data = {
+function MoreInfo(props) {
+    /*const data = {
         labels: datesSorted,
         datasets: [
                 {
@@ -40,7 +26,7 @@ function Chart(props) {
                     data: props.datesRecovered,
                 }
             ]
-    }
+    }*/
 
     function handleBack() {
         props.goBack();
@@ -48,9 +34,9 @@ function Chart(props) {
 
     return (
         <div>
-            <h2>{props.name[0]}</h2>
-            <h4>{props.name[1]}</h4>
-            <Line data={data} options={{responsive: true}}/>
+            <h2>{props.name}</h2>
+            <h4>{props.province}</h4>
+            {/*<Line data={data} options={{responsive: true}}/>*/}
             <div className='less-info' onClick={handleBack}>
                 <h4>Less info</h4>
             </div>
@@ -58,4 +44,4 @@ function Chart(props) {
     )
 }
 
-export default Chart
+export default MoreInfo

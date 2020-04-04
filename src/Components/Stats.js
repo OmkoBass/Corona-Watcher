@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //Components
-import Chart from "./Chart";
+import MoreInfo from "./MoreInfo";
 
 //Bootstrap
 import Container from "react-bootstrap/Container";
@@ -22,21 +22,21 @@ function Stats(props) {
                         basic
                         ?
                             <div>
-                                <h2>{props.name[0]}</h2>
-                                <h4>{props.name[1]}</h4>
-                                <h5>{props.confirmed}</h5>
-                                <h5 className='death text-danger'>{props.dead}</h5>
-                                <h5 className='recovered text-success'>{props.recovered}</h5>
-                                <div className='country-info' onClick={handleInfo}>
+                                <h2>{props.country}</h2>
+                                <h4>{props.province}</h4>
+                                <h5 className='text-secondary m-3'>Last updated: {props.updated}</h5>
+                                <h5>{props.stats.confirmed}</h5>
+                                <h5 className='death text-danger'>{props.stats.deaths}</h5>
+                                <h5 className='recovered text-success'>{props.stats.recovered}</h5>
+
+                                {/*<div className='country-info' onClick={handleInfo}>
                                     <p>Click me for more info!</p>
-                                </div>
+                                </div>*/}
                             </div>
                         :
-                        <Chart
-                            name={props.name}
-                            datesConfirmed={props.datesConfirmed}
-                            datesDead={Object.values(props.datesDead)}
-                            datesRecovered={Object.values(props.datesRecovered)}
+                        <MoreInfo
+                            name={props.country}
+                            province={props.province}
                             goBack={handleInfo}
                         />
                     }
