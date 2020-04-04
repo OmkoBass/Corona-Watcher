@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 //Components
 import MoreInfo from "./MoreInfo";
@@ -18,28 +18,29 @@ function Stats(props) {
         <div className='stats'>
             <Container>
                 <Card>
+                    <div>
+                        <h2>{props.country}</h2>
+                        <h4>{props.province}</h4>
+                        <h5 className='text-secondary m-3'>Last updated: {props.updated}</h5>
+                        <h5>{props.stats.confirmed}</h5>
+                        <h5 className='text-danger'>{props.stats.deaths}</h5>
+                        <h5 className='text-success'>{props.stats.recovered}</h5>
+                    </div>
                     {
                         basic
-                        ?
-                            <div>
-                                <h2>{props.country}</h2>
-                                <h4>{props.province}</h4>
-                                <h5 className='text-secondary m-3'>Last updated: {props.updated}</h5>
-                                <h5>{props.stats.confirmed}</h5>
-                                <h5 className='death text-danger'>{props.stats.deaths}</h5>
-                                <h5 className='recovered text-success'>{props.stats.recovered}</h5>
-
-                                {/*<div className='country-info' onClick={handleInfo}>
-                                    <p>Click me for more info!</p>
-                                </div>*/}
-                            </div>
-                        :
-                        <MoreInfo
-                            name={props.country}
-                            province={props.province}
-                            goBack={handleInfo}
-                        />
+                            ?
+                            null
+                            :
+                            <MoreInfo
+                                country={props.country}
+                                province={props.province}
+                                updated={props.updated}
+                                goBack={handleInfo}
+                            />
                     }
+                    <div className='country-info' onClick={handleInfo}>
+                        <p>Click me for {basic ? 'more' : 'less'} info!</p>
+                    </div>
                 </Card>
                 <hr/>
             </Container>
@@ -47,4 +48,4 @@ function Stats(props) {
     )
 }
 
-export default  Stats
+export default Stats

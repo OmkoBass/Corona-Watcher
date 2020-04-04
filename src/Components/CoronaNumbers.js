@@ -10,8 +10,15 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 function CoronaNumbers(props) {
     const mortality = (props.deaths / props.cases * 100).toFixed(2);
 
+    const date = new Date(props.update);
+
+    const convertedDate = `${date.getMonth()+1}:${date.getDate()}:${date.getFullYear()} at ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
     return (
         <div className='text-center'>
+            <div className='text-center bg-dark text-white p-3'>
+                <h4>Last updated: {convertedDate}</h4>
+            </div>
             <div className='corona-numbers'>
                 <Jumbotron className='latest bg-warning'>
                     <Container>

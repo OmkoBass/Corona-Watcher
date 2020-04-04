@@ -24,16 +24,16 @@ function App() {
     const [globalHistory, setGlobalHistory] = useState(null);
     const [done, setDone] = useState(false);
 
+    async function getGlobalData() {
+        let data = await new NovelCovid();
+
+        return data.all();
+    }
+
     async function getCountries() {
         let data = await new NovelCovid();
 
         return await data.jhucsse();
-    }
-
-    async function getGlobalData() {
-         let data = await new NovelCovid();
-
-         return data.all();
     }
 
     async function getGlobalHistory() {
@@ -61,6 +61,7 @@ function App() {
             ?
                 <div>
                     <CoronaNumbers
+                        update={globalData.updated}
                         cases={globalData.cases}
                         deaths={globalData.deaths}
                         recovered={globalData.recovered}

@@ -23,7 +23,7 @@ function Countries(props) {
 
     function handleSearch() {
         const searched = allStats.filter(stat =>
-        stat.country.includes(search.current.value))
+        stat.country.includes(search.current.value));
 
         setStats(searched);
     }
