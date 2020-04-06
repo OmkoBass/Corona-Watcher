@@ -21,28 +21,26 @@ function MoreInfo(props) {
 
     useEffect(() => {
         getCountry().then(responseData => {
+            console.log(responseData);
             const info = {
                 labels: Object.keys(responseData.timeline.cases),
                 datasets: [
                     {
                         label: 'Sick',
-                        backgroundColor: '#cccccc', //Lighter
-                        borderColor: '#bfbfbf', //Darker
-                        fill: false,
+                        backgroundColor: '#87ceeb', //Lighter
+                        borderColor: '#5bbce4', //Darker
                         data: Object.values(responseData.timeline.cases)
                     },
                     {
                         label: 'Dead',
                         backgroundColor: '#ff6666',
                         borderColor: '#ff4d4d',
-                        fill: false,
                         data: Object.values(responseData.timeline.deaths)
                     },
                     {
                         label: 'Recovered',
                         backgroundColor: '#85e085',
                         borderColor: '#70db70',
-                        fill: false,
                         data: Object.values(responseData.timeline.recovered)
                     }
                 ]
@@ -51,12 +49,12 @@ function MoreInfo(props) {
             setInfo(info);
             setDone(true);
         })
-    });
+    }, []);
 
     return (
         <div>
             {done ?
-                <Line data={info} options={{responsive: true}}/>
+                <Line data={info} height={100} options={{responsive: true}}/>
                 :
                 <Loader/>
             }

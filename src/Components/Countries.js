@@ -32,7 +32,6 @@ function Countries(props) {
         <div>
             <Container>
                 <div className='stats-control'>
-                    <Form.Label>Search countries:</Form.Label>
                     <Form.Control ref={search} onChange={handleSearch} placeholder='Search countries...'/>
                 </div>
             </Container>
@@ -40,9 +39,9 @@ function Countries(props) {
                 <Stats
                     key = {++counter}
                     country = {country.country}
-                    province = {country.province}
-                    stats = {country.stats}
-                    updated = {country.updatedAt}
+                    stats = {[country.cases, country.deaths, country.recovered]}
+                    updated = {country.updated}
+                    flag = {country.countryInfo.flag}
                 />
             ))
             :

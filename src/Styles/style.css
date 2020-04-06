@@ -10,8 +10,13 @@ ul {
 }
 
 .jumbotron {
+    background: white !important;
     margin: 0 !important;
     border-radius: 0 !important;
+}
+
+.death {
+    max-height: 30.8vh;
 }
 
 .loading {

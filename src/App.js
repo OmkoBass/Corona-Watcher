@@ -33,7 +33,7 @@ function App() {
     async function getCountries() {
         let data = await new NovelCovid();
 
-        return await data.jhucsse();
+        return await data.countries();
     }
 
     async function getGlobalHistory() {
