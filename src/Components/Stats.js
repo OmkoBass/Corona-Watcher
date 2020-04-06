@@ -12,6 +12,7 @@ import Image from "react-bootstrap/Image";
 
 function Stats(props) {
     const [basic, setBasic] = useState(true);
+    console.log(props);
 
     function handleInfo() {
         setBasic(!basic);
@@ -27,7 +28,7 @@ function Stats(props) {
                                 <div>
                                     <h4 className='text-center'>{props.country}</h4>
                                     <Image
-                                        style={{maxHeight: '50px'}}
+                                        style={{width: '50px', height:'50px'}}
                                         src={props.flag} alt='flag'
                                         roundedCircle/>
                                 </div>
