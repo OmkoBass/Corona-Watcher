@@ -1,31 +1,86 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useRef, useState} from 'react'
-
 //Components
 import Stats from "./Stats";
-
 //Bootstrap
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+//React-window
+import {FixedSizeList as List} from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 function Countries(props) {
     const [stats, setStats] = useState(null);
     const [allStats, setAllStats] = useState(null);
 
-    let counter = -1;
+    async function renderList(list) {
+        const Row = ({index, style}) => (
+            <Stats
+                style={style}
+                key={index}
+                country={list[index].country}
+                stats={[list[index].cases, list[index].deaths, list[index].recovered]}
+                updated={list[index].updated}
+                flag={list[index].countryInfo.flag}
+            />
+        );
+
+        return () => (
+            <AutoSizer style={{height: '700px'}}>
+                {({height, width}) => (
+                    <List
+                        height={height}
+                        width={width}
+                        itemCount={list.length}
+                        itemSize={3.3}
+                    >
+                        {Row}
+                    </List>
+                )}
+            </AutoSizer>
+        );
+    }
 
     useEffect(() => {
-        setStats(props.countries);
+        renderList(props.countries).then(response => setStats(response));
         setAllStats(props.countries);
     }, []);
 
     let search = useRef(null);
 
     function handleSearch() {
-        const searched = allStats.filter(stat =>
-        stat.country.includes(search.current.value));
+        let searched = allStats.filter(stat => {
+            if (stat.country.includes(search.current.value))
+                return stat;
+            else
+                return null;
+        });
 
-        setStats(searched);
+        const Row = ({index, style}) => (
+            <Stats
+                style={style}
+                key={index}
+                country={searched[index].country}
+                stats={[searched[index].cases, searched[index].deaths, searched[index].recovered]}
+                updated={searched[index].updated}
+                flag={searched[index].countryInfo.flag}
+            />
+        );
+
+        const Example = <AutoSizer style={{height: '700px'}}>
+                {({ height, width }) => (
+                    <List
+                        className='List'
+                        height={height}
+                        width={width}
+                        itemCount={searched.length}
+                        itemSize={3.3}
+                    >
+                        {Row}
+                    </List>
+                )}
+            </AutoSizer>;
+
+        setStats(Example);
     }
 
     return (
@@ -35,17 +90,9 @@ function Countries(props) {
                     <Form.Control ref={search} onChange={handleSearch} placeholder='Search countries...'/>
                 </div>
             </Container>
-            {stats ? stats.map(country => (
-                <Stats
-                    key = {++counter}
-                    country = {country.country}
-                    stats = {[country.cases, country.deaths, country.recovered]}
-                    updated = {country.updated}
-                    flag = {country.countryInfo.flag}
-                />
-            ))
-            :
-            null}
+            <div>
+                {stats}
+            </div>
         </div>
     )
 }

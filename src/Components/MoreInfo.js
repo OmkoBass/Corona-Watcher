@@ -54,7 +54,7 @@ function MoreInfo(props) {
     return (
         <div>
             {done ?
-                <Line data={info} height={100} options={{responsive: true}}/>
+                <Line data={info} options={{responsive: true}}/>
                 :
                 <Loader/>
             }

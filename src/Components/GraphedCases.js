@@ -36,7 +36,6 @@ function GraphedCases(props) {
             <h3 className='p-3'>Global COVID-19 cases</h3>
             <Line
                 data={data}
-                height={100}
                 options={{responsive: true,
                     maintainAspectRatio: true,
                 }}/>

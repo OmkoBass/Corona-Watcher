@@ -15,8 +15,6 @@ import dead from '../Assets/dead.png';
 import recovered from '../Assets/recovered.png';
 
 function CoronaNumbers(props) {
-    const mortality = (props.deaths / props.cases * 100).toFixed(2);
-
     const date = new Date(props.update);
 
     let month = date.getMonth() + 1;
@@ -69,7 +67,6 @@ function CoronaNumbers(props) {
                         >
                             <img src={dead} alt='dead-icon'/>
                             <h4 className='mt-3'>Deaths:</h4>
-                            <h6>{mortality}%</h6>
                             <h3>
                                 <CountUp
                                     className='font-weight-bold'
