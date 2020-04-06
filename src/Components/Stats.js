@@ -28,7 +28,9 @@ function Stats(props) {
                                 <div>
                                     <h4 className='text-center'>{props.country}</h4>
                                     <Image
-                                        src={props.flag} alt='flag'
+                                        src={props.flag}
+                                        style={{width:'250', height:'167'}}
+                                        alt='flag'
                                         roundedCircle/>
                                 </div>
                             </Col>
