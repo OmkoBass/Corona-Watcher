@@ -28,13 +28,12 @@ function Stats(props) {
                                 <div>
                                     <h4 className='text-center'>{props.country}</h4>
                                     <Image
-                                        style={{width: '50px', height:'50px'}}
                                         src={props.flag} alt='flag'
                                         roundedCircle/>
                                 </div>
                             </Col>
                         </Row>
-                        <div>
+                        <div className='mt-5'>
                             <Row>
                                 <Col>
                                     <h5>Cases</h5>
