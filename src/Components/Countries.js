@@ -59,14 +59,18 @@ function Countries(props) {
     let search = useRef(null);
 
     function handleSearch() {
-        const searched = allStats.filter(stat => {
-            if (stat.country.includes(search.current.value))
-                return stat;
-            else
-                return null;
-        });
+        if(search.current.value !== null) {
+            let upper = search.current.value.toLowerCase().replace(/^\w/, c => c.toUpperCase());
 
-        setStats(renderSizer(renderRow(searched)));
+            const searched = allStats.filter(stat => {
+                if (stat.country.includes(upper))
+                    return stat;
+                else
+                    return null;
+            });
+
+            setStats(renderSizer(renderRow(searched)));
+        }
     }
 
     return (
