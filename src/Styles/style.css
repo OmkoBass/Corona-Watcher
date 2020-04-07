@@ -9,6 +9,24 @@ ul {
     list-style-type: none;
 }
 
+.to-top {
+    position: fixed;
+    font-size: 26px;
+    right: 1em;
+    bottom: 1em;
+    text-align: center;
+    width: 35px;
+    color: white;
+    background-color: black;
+    border-radius: 2em;
+    z-index: 5;
+    transition: 0.3s all ease-in-out;
+}
+
+.to-top:hover {
+    background: linear-gradient(90deg, #c31432, #240b36);
+}
+
 .jumbotron {
     background: white !important;
     margin: 0 !important;

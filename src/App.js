@@ -22,6 +22,7 @@ function App() {
     const [globalData, setGlobalData] = useState(null);
     const [countries, setCountries] = useState(null);
     const [globalHistory, setGlobalHistory] = useState(null);
+    const [toTop, setToTop] = useState(false);
     const [done, setDone] = useState(false);
 
     async function getGlobalData() {
@@ -48,7 +49,21 @@ function App() {
         await getGlobalHistory().then(data => setGlobalHistory(data));
     }
 
+    function scroll() {
+        if (document.body.scrollTop > 460 || document.documentElement.scrollTop > 460) {
+            setToTop(true);
+        } else {
+            setToTop(false);
+        }
+    }
+
+    window.onscroll = () => {
+        scroll();
+    };
+
     useEffect(() => {
+
+
         setData().then(function() {
             setDone(true);
         })
@@ -57,6 +72,11 @@ function App() {
     return (
         <React.Fragment>
             <Nav/>
+            <div className='to-top'
+                 style={toTop ? null : {display: 'none'}}
+                 onClick={() => window.scrollTo(0, 0)}>
+                <span>&#8593;</span>
+            </div>
             {done
             ?
                 <div>
