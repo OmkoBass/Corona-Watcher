@@ -11,12 +11,6 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
 function Stats(props) {
-    const [basic, setBasic] = useState(true);
-
-    function handleInfo() {
-        setBasic(!basic);
-    }
-
     return (
         <div className='stats'>
             <Container>
@@ -27,6 +21,7 @@ function Stats(props) {
                                 <div>
                                     <h3 className='text-center'>{props.country}</h3>
                                     <Image className={'p-2'}
+                                           style={{height: '150px', width: '150px'}}
                                            roundedCircle
                                            src={props.flag} alt='flag'/>
                                 </div>
@@ -43,27 +38,15 @@ function Stats(props) {
                                     <h5 className='text-danger font-weight-bold'>{props.stats[1]}</h5>
                                 </Col>
                                 <Col>
-                                    <h5>Recovered</h5>
+                                    <h5>Healthy</h5>
                                     <h5 className='text-success font-weight-bold'>{props.stats[2]}</h5>
                                 </Col>
                             </Row>
                         </div>
                     </div>
-                    {
-                        basic
-                            ?
-                            null
-                            :
-                            <MoreInfo
-                                country={props.country}
-                                province={props.province}
-                                updated={props.updated}
-                                goBack={handleInfo}
-                            />
-                    }
-                    <div className='country-info mt-3' onClick={handleInfo}>
-                        <p>Click me for {basic ? 'more' : 'less'} info!</p>
-                    </div>
+                    <MoreInfo
+                        country={props.country}
+                    />
                 </Card>
                 <hr/>
             </Container>

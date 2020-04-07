@@ -12,75 +12,61 @@ function Countries(props) {
     const [stats, setStats] = useState(null);
     const [allStats, setAllStats] = useState(null);
 
-    async function renderList(list) {
-        const Row = ({index, style}) => (
-            <Stats
-                style={style}
-                key={index}
-                country={list[index].country}
-                stats={[list[index].cases, list[index].deaths, list[index].recovered]}
-                updated={list[index].updated}
-                flag={list[index].countryInfo.flag}
-            />
-        );
+    function renderRow(list) {
+        if (list.length === 0) {
+            return null
+        } else {
+            return [({index, style}) => (
+                <div style={style}>
+                    <Stats
+                        key={index}
+                        country={list[index].country}
+                        stats={[list[index].cases, list[index].deaths, list[index].recovered]}
+                        updated={list[index].updated}
+                        flag={list[index].countryInfo.flag}
+                    />
+                </div>
+            ), list.length];
+        }
+    }
 
-        return () => (
-            <AutoSizer style={{height: '700px'}}>
-                {({height, width}) => (
-                    <List
-                        height={height}
-                        width={width}
-                        itemCount={list.length}
-                        itemSize={3.3}
-                    >
-                        {Row}
-                    </List>
-                )}
-            </AutoSizer>
-        );
+    function renderSizer(Row) {
+        if (Row === null) {
+            return null;
+        } else {
+            return (
+                <AutoSizer style={{height: '660px'}}>
+                    {({height, width}) => (
+                        <List
+                            height={height}
+                            width={width}
+                            itemCount={Row[1]}
+                            itemSize={560}
+                        >
+                            {Row[0]}
+                        </List>
+                    )}
+                </AutoSizer>
+            )
+        }
     }
 
     useEffect(() => {
-        renderList(props.countries).then(response => setStats(response));
+        setStats(renderSizer(renderRow(props.countries)));
         setAllStats(props.countries);
     }, []);
 
     let search = useRef(null);
 
     function handleSearch() {
-        let searched = allStats.filter(stat => {
+        const searched = allStats.filter(stat => {
             if (stat.country.includes(search.current.value))
                 return stat;
             else
                 return null;
         });
 
-        const Row = ({index, style}) => (
-            <Stats
-                style={style}
-                key={index}
-                country={searched[index].country}
-                stats={[searched[index].cases, searched[index].deaths, searched[index].recovered]}
-                updated={searched[index].updated}
-                flag={searched[index].countryInfo.flag}
-            />
-        );
-
-        const Example = <AutoSizer style={{height: '700px'}}>
-                {({ height, width }) => (
-                    <List
-                        className='List'
-                        height={height}
-                        width={width}
-                        itemCount={searched.length}
-                        itemSize={3.3}
-                    >
-                        {Row}
-                    </List>
-                )}
-            </AutoSizer>;
-
-        setStats(Example);
+        setStats(renderSizer(renderRow(searched)));
     }
 
     return (
