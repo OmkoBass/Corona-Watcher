@@ -34,7 +34,7 @@ function App() {
     async function getCountries() {
         let data = await new NovelCovid();
 
-        return await data.countries();
+        return await data.countries(null, 'cases');
     }
 
     async function getGlobalHistory() {
