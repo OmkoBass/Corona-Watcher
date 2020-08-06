@@ -7,6 +7,7 @@ import { Layout, Spin } from 'antd';
 import Header from "./Components/Smaller/Header";
 import Footer from "./Components/Smaller/Footer";
 import GlobalStats from "./Components/Smaller/GlobalStats";
+import GlobalChart from "./Components/Smaller/GlobalChart";
 
 //For fetching
 import axios from 'axios'
@@ -34,6 +35,8 @@ function App() {
                     deaths={all?.deaths}
                     recovered={all?.recovered}
                 />
+
+                <GlobalChart/>
             </Layout.Content>
         </Spin>
         <Footer/>
