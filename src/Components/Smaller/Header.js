@@ -7,10 +7,11 @@ import moment from "moment";
 
 function Header({updated}) {
     return <Layout.Header style={{color: 'white', textAlign: 'center'}}>
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
             Corona-Watcher
-            Last updated
-            {moment(updated).format('DD.MM.YYYY HH:mm')}
+            <div>
+                Last updated:{moment(updated).format('DD.MM.YYYY HH:mm')}
+            </div>
         </div>
     </Layout.Header>
 }
