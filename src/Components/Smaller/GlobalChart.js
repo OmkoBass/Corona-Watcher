@@ -13,7 +13,7 @@ function GlobalChart() {
     const [loading, setLoading] = useState(null);
 
     useEffect(() => {
-        axios.get(`https://disease.sh/v3/covid-19/historical/all?lastdays=30`)
+        axios.get(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
             .then(response => {
                 if (response.data) {
                     let casesDates = (Object.keys(response.data.cases));
@@ -67,7 +67,6 @@ function GlobalChart() {
         },
         description: {
             visible: true,
-            text: '30 Days before now'
         },
         data,
         xField: 'date',
