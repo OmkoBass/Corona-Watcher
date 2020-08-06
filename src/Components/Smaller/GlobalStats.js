@@ -7,7 +7,7 @@ import {Row, Col, Card} from 'antd';
 import {MehTwoTone, FrownTwoTone, SmileTwoTone} from '@ant-design/icons';
 
 function GlobalStats({cases, deaths, recovered}) {
-    return <div style={{maxWidth: '1324px', display: 'block', margin: 'auto'}}>
+    return <div>
         <Row style={{padding: '2em'}}
              gutter={[{xs: 8, sm: 16, md: 24, lg: 32}, {xs: 8, sm: 16, md: 24, lg: 32}]}
              justify='center'>

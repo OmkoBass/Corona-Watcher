@@ -29,7 +29,7 @@ function App() {
     return <Layout>
         <Spin tip='Loading...' spinning={loading}>
             <Header updated={all?.updated}/>
-            <Layout.Content style={{minHeight: '86vh'}}>
+            <Layout.Content style={{minHeight: '86vh', maxWidth: '1324px', display: 'block', margin: 'auto'}}>
                 <GlobalStats
                     cases={all?.cases}
                     deaths={all?.deaths}
