@@ -9,6 +9,7 @@ import Footer from "./Components/Smaller/Footer";
 import GlobalStats from "./Components/Smaller/GlobalStats";
 import GlobalChart from "./Components/Smaller/GlobalChart";
 import Description from "./Components/Smaller/Description";
+import AllCountries from "./Components/Smaller/AllCountires";
 
 //For fetching
 import axios from 'axios'
@@ -31,7 +32,7 @@ function App() {
     return <Layout>
         <Spin tip='Loading...' spinning={loading}>
             <Header updated={all?.updated}/>
-            <Layout.Content style={{minHeight: '86vh', maxWidth: '1324px', display: 'block', margin: 'auto'}}>
+            <Layout.Content style={{padding: '2em', minHeight: '86vh', maxWidth: '1324px', display: 'block', margin: 'auto'}}>
                 <GlobalStats
                     cases={all?.cases}
                     deaths={all?.deaths}
@@ -41,6 +42,8 @@ function App() {
                 <GlobalChart/>
 
                 <Description/>
+
+                <AllCountries/>
             </Layout.Content>
         </Spin>
         <Footer/>
