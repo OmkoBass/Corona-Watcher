@@ -4,8 +4,8 @@ import React from 'react'
 import { Card } from "antd";
 import GlobalStats from "./GlobalStats";
 
-function CountryCard(props) {
-    return <Card title={props.country}>
+function CountryCard({ countryInfo }) {
+    return <Card title={countryInfo?.country} hoverable>
         {/*<Meta
             style={{textAlign: 'center'}}
             title={props.country}
@@ -15,9 +15,9 @@ function CountryCard(props) {
         />*/}
 
         <GlobalStats
-            cases={props.cases}
-            deaths={props.deaths}
-            recovered={props.recovered}
+            cases={countryInfo?.cases}
+            deaths={countryInfo?.deaths}
+            recovered={countryInfo?.recovered}
         />
     </Card>
 }
