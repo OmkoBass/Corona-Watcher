@@ -12,6 +12,9 @@ import axios from 'axios'
 import {FixedSizeList} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 
+//Lodash debounce
+import {debounce} from 'lodash';
+
 function AllCountries() {
     const [allCountries, setAllCountries] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -54,7 +57,7 @@ function AllCountries() {
                         options={selectedCountries.map(country => {
                             return {value: country.country}
                         })}
-                        onChange={value => setSelectedCountries(allCountries.filter(country => country.country.includes(value)))}
+                        onChange={debounce(value => setSelectedCountries(allCountries.filter(country => country.country.includes(value))), 500)}
                         onSelect={value => setSelectedCountries(allCountries.filter(country => country.country === value))}
                     />
                     <AutoSizer style={{height: '100vh'}}>

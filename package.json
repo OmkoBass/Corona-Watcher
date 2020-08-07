@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "image-resize": "^1.1.5",
+    "lodash": "^4.17.19",
     "moment": "^2.27.0",
     "novelcovid": "^1.2.6",
     "react": "^16.13.0",
