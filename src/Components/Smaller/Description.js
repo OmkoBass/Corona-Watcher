@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Description() {
-    return <div style={{textAlign: 'center', padding: '2em'}}>
+    return <div style={{textAlign: 'center'}}>
         <h2>COVID-19</h2>
 
         <h5>
