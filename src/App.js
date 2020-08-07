@@ -12,6 +12,7 @@ import GlobalChart from "./Components/Smaller/GlobalChart";
 //For fetching
 import axios from 'axios'
 
+import './Styles/Global.css';
 import 'antd/dist/antd.css';
 
 function App() {
