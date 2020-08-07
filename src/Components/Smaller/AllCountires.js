@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 //Ant Components
-import {Spin, AutoComplete} from "antd";
+import {Grid, Spin, AutoComplete} from "antd";
 
 //Components
 import CountryCard from "./CountryCard";
@@ -15,6 +15,8 @@ import AutoSizer from "react-virtualized-auto-sizer";
 //Lodash debounce
 import {debounce} from 'lodash';
 
+const { useBreakpoint } = Grid;
+
 function AllCountries() {
     const [allCountries, setAllCountries] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,6 +24,8 @@ function AllCountries() {
     const [selectedCountries, setSelectedCountries] = useState(null);
 
     const [countryHistorical, setCountryHistorical] = useState(null);
+
+    const screens = useBreakpoint();
 
     useEffect(() => {
         axios.get(`https://corona.lmao.ninja/v2/countries?sort=country`)
@@ -65,7 +69,7 @@ function AllCountries() {
                             <FixedSizeList
                                 style={{display: 'block', margin: 'auto'}}
                                 itemCount={selectedCountries.length}
-                                itemSize={820}
+                                itemSize={screens.md ? 820 : 1284}
                                 height={height}
                                 width={width}
                             >
