@@ -8,6 +8,7 @@ import Header from "./Components/Smaller/Header";
 import Footer from "./Components/Smaller/Footer";
 import GlobalStats from "./Components/Smaller/GlobalStats";
 import GlobalChart from "./Components/Smaller/GlobalChart";
+import Description from "./Components/Smaller/Description";
 
 //For fetching
 import axios from 'axios'
@@ -38,6 +39,8 @@ function App() {
                 />
 
                 <GlobalChart/>
+
+                <Description/>
             </Layout.Content>
         </Spin>
         <Footer/>
