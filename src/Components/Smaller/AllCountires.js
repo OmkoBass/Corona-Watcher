@@ -18,47 +18,60 @@ function AllCountries() {
 
     const [selectedCountries, setSelectedCountries] = useState(null);
 
+    const [countryHistorical, setCountryHistorical] = useState(null);
+
     useEffect(() => {
         axios.get(`https://corona.lmao.ninja/v2/countries?sort=country`)
             .then(response => {
-                console.log(response.data);
                 if (response.data) {
                     setAllCountries(response.data);
                     setSelectedCountries(response.data);
                 }
-            }).then(() => setLoading(false));
+            }).then(() => axios.get(`https://corona.lmao.ninja/v2/historical?lastdays=all`)
+            .then(response => {
+                if (response.data)
+                    setCountryHistorical(response.data);
+            }).then(() => setLoading(false)));
     }, []);
 
     const Country = ({index, style}) => (
         <div key={index} style={style}>
-            <CountryCard countryInfo={selectedCountries[index]}/>
+            <CountryCard countryInfo={selectedCountries[index]} countryHistorical={countryHistorical[index].timeline}/>
         </div>
     );
 
     return <div>
-        <Spin spinning={loading} tip='Loading...'>
-            <AutoComplete
-                style={{width: '100%', display: 'block', margin: 'auto', marginBottom: '1em'}}
-                allowClear
-                placeholder="Country"
-                options={selectedCountries?.map(country => { return { value: country.country }})}
-                onChange={value => setSelectedCountries(allCountries?.filter(country => country.country.includes(value)))}
-                onSelect={value => setSelectedCountries(allCountries?.filter(country => country.country === value))}
-            />
-            <AutoSizer style={{height: '100vh'}}>
-                {({height, width}) =>
-                    <FixedSizeList
-                        style={{display: 'block', margin: 'auto'}}
-                        itemCount={selectedCountries?.length}
-                        itemSize={820}
-                        height={height}
-                        width={width}
-                    >
-                        {Country}
-                    </FixedSizeList>
-                }
-            </AutoSizer>
-        </Spin>
+        {
+            loading
+                ?
+                <Spin style={{display: 'block', margin: '2em auto auto auto'}} size='large' tip='Getting info...'/>
+                :
+                <div>
+                    <AutoComplete
+                        style={{width: '100%', display: 'block', margin: 'auto', marginBottom: '1em'}}
+                        allowClear
+                        placeholder="Country"
+                        options={selectedCountries.map(country => {
+                            return {value: country.country}
+                        })}
+                        onChange={value => setSelectedCountries(allCountries.filter(country => country.country.includes(value)))}
+                        onSelect={value => setSelectedCountries(allCountries.filter(country => country.country === value))}
+                    />
+                    <AutoSizer style={{height: '100vh'}}>
+                        {({height, width}) =>
+                            <FixedSizeList
+                                style={{display: 'block', margin: 'auto'}}
+                                itemCount={selectedCountries.length}
+                                itemSize={820}
+                                height={height}
+                                width={width}
+                            >
+                                {Country}
+                            </FixedSizeList>
+                        }
+                    </AutoSizer>
+                </div>
+        }
     </div>
 }
 
