@@ -22,33 +22,27 @@ function CountryCard({ countryInfo, countryHistorical }) {
         let total = [];
 
         for(let i = 0; i < casesDates.length; i++) {
-            const combinedObject = {
+            const combinedObjectCases = {
                 date: casesDates[i],
                 value: casesValues[i],
                 type: 'cases'
             }
 
-            total.push(combinedObject);
-        }
-
-        for(let i = 0; i < casesDates.length; i++) {
-            const combinedObject = {
+            const combinedObjectDeath = {
                 date: casesDates[i],
                 value: deathsValues[i],
                 type: 'deaths'
             }
 
-            total.push(combinedObject);
-        }
-
-        for(let i = 0; i < casesDates.length; i++) {
-            const combinedObject = {
+            const combinedObjectRecovered = {
                 date: casesDates[i],
                 value: recoveredValues[i],
                 type: 'recovered'
             }
 
-            total.push(combinedObject);
+            total.push(combinedObjectCases);
+            total.push(combinedObjectDeath);
+            total.push(combinedObjectRecovered);
         }
 
         setData(total);
