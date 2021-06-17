@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
-//Bootstrap
 import Spinner from "react-bootstrap/Spinner";
 
 function Loader() {
-    return (
-        <div className='loading'>
-            <Spinner animation="border" role="status">
-                <span className="sr-only">Loading...</span>
-            </Spinner>
-        </div>
-    )
+  return (
+    <div className="loading" data-testid="loader">
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+    </div>
+  );
 }
 
-export default Loader
+export default Loader;
