@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly 1`] = `
+<footer
+  className="p-3"
+  data-testid="footer"
+>
+  <a
+    href="https://github.com/NovelCOVID/API"
+  >
+    https://github.com/NovelCOVID/API
+  </a>
+  <p>
+    OmkoBass Github
+  </p>
+</footer>
+`;
