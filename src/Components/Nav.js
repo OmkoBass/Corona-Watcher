@@ -3,6 +3,7 @@ import React from "react";
 function Nav() {
   return (
     <nav
+      data-testid="nav"
       className="text-center text-white p-3"
       style={{ backgroundColor: "black" }}
     >
