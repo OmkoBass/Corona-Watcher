@@ -34,7 +34,7 @@ function App() {
     await getGlobalHistory().then((data) => setGlobalHistory(data));
   }
 
-  function scroll() {
+  async function scroll() {
     if (
       document.body.scrollTop > 460 ||
       document.documentElement.scrollTop > 460
@@ -56,7 +56,7 @@ function App() {
   }, []);
 
   return (
-    <React.Fragment>
+    <div data-testid="app">
       <Nav />
       <div
         className="to-top"
@@ -85,7 +85,7 @@ function App() {
       <Info />
       {done ? <Countries countries={countries} /> : <Loader />}
       <Footer />
-    </React.Fragment>
+    </div>
   );
 }
 
